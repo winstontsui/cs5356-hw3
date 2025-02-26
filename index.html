@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Winston's website">
+    <meta property="og:description" content="Website for cs5356 homework 3">
+    <meta property="og:url" content="https://winstontsui.github.io">
+    <script async src="https://www.goatcounter.com/count.js" data-goatcounter="https://your-goatcounter-subdomain.goatcounter.com/count" ></script>
+    <title>My Personal Webpage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+        .container {
+            max-width: 800px;
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .bio {
+            margin-bottom: 20px;
+        }
+        details {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .dog-image {
+            margin-top: 20px;
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
+        }
+        .interactive {
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: transform 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="profile.jpg" alt="logo">
+        <h1>Winston Tsui</h1>
+        <p class="bio">Hello! I'm Winston, a student in cs5356 who loves coding and learning!</p>
+        
+        <details>
+            <summary>A fun fact about me</summary>
+            <p>My favorite city is Montreal!</p>
+        </details>
+        
+        <h2>Random Dog Image</h2>
+        <img id="dogImage" class="dog-image" src="" alt="Random Dog">
+        <button onclick="fetchDogImage()">Get Another Dog</button>
+        <h2>A cool interactive box</h2>
+        <div class="interactive" id="interactiveBox">Move your mouse here!</div>
+    </div>
+
+    <script>
+        function fetchDogImage() {
+            fetch('https://dog.ceo/api/breeds/image/random')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('dogImage').src = data.message;
+                })
+                .catch(error => console.error('Error fetching image:', error));
+        }
+        fetchDogImage(); // Fetch an image when the page loads
+
+        //Interactive
+        document.getElementById('interactiveBox').addEventListener('mousemove', (e) => {
+            const box = e.target;
+            const x = e.offsetX;
+            const y = e.offsetY;
+            box.style.transform = `rotate(${x / 10}deg) scale(${1 + y / 200})`;
+        });
+    </script>
+</body>
+</html>

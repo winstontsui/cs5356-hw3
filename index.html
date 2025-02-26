@@ -6,7 +6,9 @@
     <meta property="og:title" content="Winston's website">
     <meta property="og:description" content="Website for cs5356 homework 3">
     <meta property="og:url" content="https://winstontsui.github.io">
-    <script async src="https://www.goatcounter.com/count.js" data-goatcounter="https://your-goatcounter-subdomain.goatcounter.com/count" ></script>
+    <script data-goatcounter="https://winstontsui.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
     <title>My Personal Webpage</title>
     <style>
         body {
@@ -71,7 +73,7 @@
     <div class="container">
         <img src="profile.jpg" alt="logo">
         <h1>Winston Tsui</h1>
-        <p class="bio">Hello! I'm Winston, a student in cs5356 who loves coding and learning!</p>
+        <p class="bio">Hello! I'm Winston, a student in cs5356 who loves coding and learning! I am a computer science student and am taking Building startup systems, Data Science concepts in the wild, BigCo Studio, Special topics and Natural language processing classes this semester.</p>
         
         <details>
             <summary>A fun fact about me</summary>
@@ -94,9 +96,9 @@
                 })
                 .catch(error => console.error('Error fetching image:', error));
         }
-        fetchDogImage(); // Fetch an image when the page loads
+        fetchDogImage(); // Fetch random image when the page loads
 
-        //Interactive
+        //Interactiveness
         document.getElementById('interactiveBox').addEventListener('mousemove', (e) => {
             const box = e.target;
             const x = e.offsetX;
